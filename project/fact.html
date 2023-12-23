@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--japievieno style-->
+    <link rel="stylesheet" href="style.css">
+
+    <title>PROJECT KITTY</title>
+
+</head>
+<body>
+
+<h1 id="randomfact">Would you like to read a random fact about cats?</h1>
+<p id="p">Click the button again to get another fact.</p>
+
+<div id="randomfact-container">
+</div>
+
+<button class="button" onclick="getRandomFact()">Yes, i would!</button>
+<button class="button" onclick="navigateToHomepage()">Homepage</button>
+
+<script>
+    //funkcija atlastit faktu
+    function getRandomFact() {
+  const url = 'cat_facts.txt?t=' + new Date().getTime();
+
+  // Read the text file
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text();
+    })
+    .then(data => {
+        console.log('File content:', data);  // Log the content to the console
+      // Split the text into an array of items
+      const items = data.split('\n');
+
+      // Get a random index
+      const randomIndex = Math.floor(Math.random() * items.length);
+
+      // Create a new div to display the random fact
+      const randomFactDiv = document.createElement('div');
+      randomFactDiv.classList.add('random-fact');
+
+      // Add the random fact to the div
+      randomFactDiv.textContent = `Random Fact: ${items[randomIndex]}`;
+
+      // Append the random fact div to the container
+      document.getElementById('randomfact-container').appendChild(randomFactDiv);
+    })
+    .catch(error => console.error('Error reading the file:', error));
+
+    const maxFactsToShow = 0;
+
+    // Remove old facts if there are more than maxFactsToShow
+    const factContainer = document.getElementById('randomfact-container');
+    while (factContainer.children.length > maxFactsToShow) {
+    factContainer.removeChild(factContainer.firstChild);}
+}
+
+    // atpakal uz homepage
+    function navigateToHomepage() {
+    window.location.href = 'homepage.html';
+  }
+</script>
+</body>
+</html>

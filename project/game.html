@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--japievieno style-->
+    <link rel="stylesheet" href="style.css">
+
+    <title>PROJECT KITTY</title>
+
+
+</head>
+<body>
+
+    <h1>PLAY A GAME</h1>
+    <p>Do you want to play a game? I will choose a random number of cats from 1 to 10, and you have to guess of how many cats am I thinking of!</p>
+
+    <div class="question-box">
+        <h2>How many cats am i thinking of?</h2>
+        <input type="number" id="howcats" placeholder="Cats" min="1" max="10">
+        <button id="enter" onclick="enter()">Enter</button>
+        <button id="playAgain" onclick="playAgain()">Play Again</button>
+
+        <p id="feedback"></p>
+    </div>
+
+    <button class="button" onclick="navigateToHomepage()">Homepage</button>
+
+    <!--funkcija kas izdoma random nummuru-->
+    <script>
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+    // parbauda atbildi
+        function enter() {
+            var userAnswer = document.getElementById('howcats').value;
+            var correctAnswer = getRandomNumber(1, 10); // pareiza atbilde
+
+            var feedbackElement = document.getElementById('feedback');
+
+            if (userAnswer == correctAnswer) {
+                feedbackElement.textContent = 'Correct!';
+                document.getElementById("playAgainBtn").style.display = "block";
+            } else {
+                feedbackElement.textContent = 'Guess agaian!';
+            }
+        }
+    // palaiz speli atkal
+        function playAgain() {
+            document.getElementById("feedback").innerHTML = "";
+            document.getElementById("howcats").value = "";
+
+      secretNumber = Math.floor(Math.random() * 10) + 1;
+        }
+
+    // atpakal uz homepage
+    function navigateToHomepage() {
+    window.location.href = 'homepage.html';
+  }
+    </script>
+
+</body>
+</html>

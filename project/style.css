@@ -1,0 +1,90 @@
+/* styles.css */
+body {
+  font-family: 'Courier New', sans-serif;
+  background-color: #DCC9A6;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 140px;
+}
+
+p {
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.button {
+  background-color: #B5A6DC;
+  color: #230F5A;
+  padding: 20px 40px;
+  border: none;
+  font-size: 22px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  margin-top: 80px;
+  font-weight: bold;
+}
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 70px;
+  }
+  a {
+    text-decoration: none;
+  }
+
+.question-box {
+  background-color: #B5A6DC;
+  padding: 20px;
+  border: 1px solid #B5A6DC;
+  border-radius: 8px;
+}
+
+.question {
+  color: #230F5A;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 50%;
+  box-sizing: border-box;
+  color:#8571B8;
+}
+
+#enter, #playAgain {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #8571B8;
+  color: #230F5A;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#enter, #playAgainBtn {
+  outline: none;
+}
+
+.randomfact-container {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#pic {
+  margin-top: 10px; 
+}
+
